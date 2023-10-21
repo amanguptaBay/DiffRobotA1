@@ -202,7 +202,14 @@ class RobotData():
             logging.debug(f"{name}")
             logging.debug(f"\tChanging XYZ from '{currentXYZ}' to '{formattedDesiredXYZ}'")
             joint.find("origin").set("xyz", formattedDesiredXYZ)
-        tree.write(exported_robot_path)   
+        tree.write(exported_robot_path)
+        #Adds in XML Doctype
+        with open(exported_robot_path, "r+") as file:
+            contents = file.read()
+            file.seek(0, 0)
+            file.truncate()
+            file.write('<?xml version="1.0" encoding="utf-8"?>\n')
+            file.write(contents)
     def get_skeleton(self):
         tree = ET.parse(self.robot_urdf_path)
         root = tree.getroot()

@@ -1,5 +1,5 @@
 import torch
-import optimization_library.utilities
+import utilities
 def interframeJointLoss(jointAngles):
     """
         The L2 norm computed for every joint. Measures frame by frame the changes in joint angles, to minimze it
@@ -25,7 +25,7 @@ def out_of_frame_loss(intrinsic,extrinsic, total_video,joint_positions_3d, scala
         :args scalar: Scalar to multiply the loss by
     """
     robot_ee_positions = torch.hstack([positions_tensor.unsqueeze(1) for positions_tensor in joint_positions_3d.values()])
-    robot_pixel_positions = optimization_library.utilities.calculateCameraProjection(intrinsic, extrinsic, robot_ee_positions)
+    robot_pixel_positions = utilities.calculateCameraProjection(intrinsic, extrinsic, robot_ee_positions)
     robot_pixel_positions = robot_pixel_positions.reshape(-1,2)
     return scalar*(sum(robot_pixel_positions[:,0] >= total_video.width)+sum(robot_pixel_positions[:,0] <= 0)+sum(robot_pixel_positions[:,1] >= total_video.height)+sum(robot_pixel_positions[:,1] <= 0))
     
