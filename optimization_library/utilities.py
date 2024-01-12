@@ -87,7 +87,7 @@ def makeLinkLengthLearnable(learnable_robot_model, linkName, value = None):
     learnable_robot_model.make_link_param_learnable(
         linkName, 
         "trans", 
-        UnconstrainedTensor(dim1 = 1, dim2 = 3, init_tensor = value)
+        UnconstrainedTensor(dim1 = 1, dim2 = 3, init_tensor = value if value is not None else torch.zeros((1,3)))
     )
     logging.debug(f"Made {linkName} link's length learnable initialized tensor to {value}")
 
@@ -312,4 +312,3 @@ class pytorch3d():
             )
             return o.reshape(quaternions.shape[:-1] + (3, 3))
 
-        

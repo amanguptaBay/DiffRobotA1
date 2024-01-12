@@ -1,5 +1,5 @@
 import torch
-import utilities
+import optimization_library.utilities as utilities
 def interframeJointLoss(jointAngles):
     """
         The L2 norm computed for every joint. Measures frame by frame the changes in joint angles, to minimze it
