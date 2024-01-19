@@ -46,19 +46,9 @@
     </collision>
   </link>
 
-  <link name="FR_pre_hip"></link>
-   <joint name="FR_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.1805 0.047 0"/>
-    <parent link="trunk"/>
-    <child link="FR_pre_hip"/>
-    <axis xyz="0 1 0"/>
-    <dynamics damping="0.01" friction="0.2"/>
-    <limit effort="33.5"   velocity="21"/>
-  </joint>
-
   <joint name="FR_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0.1805 -0.047 0"/>
-    <parent link="FR_pre_hip"/>
+    <parent link="trunk"/>
     <child link="FR_hip"/>
     <axis xyz="1 0 0"/>
     <dynamics damping="0.01" friction="0.2"/>
@@ -175,18 +165,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <link name="FL_pre_hip"></link>
-   <joint name="FL_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.1805 0.047 0"/>
-    <parent link="trunk"/>
-    <child link="FL_pre_hip"/>
-    <axis xyz="0 1 0"/>
-    <dynamics damping="0.01" friction="0.2"/>
-    <limit effort="33.5"   velocity="21"/>
-  </joint>
   <joint name="FL_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0.1805 0.047 0"/>
-    <parent link="FL_pre_hip"/>
+    <parent link="trunk"/>
     <child link="FL_hip"/>
     <axis xyz="1 0 0"/>
     <dynamics damping="0.01" friction="0.2"/>
@@ -303,18 +284,10 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <link name="RR_pre_hip"></link>
-   <joint name="RR_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.1805 0.047 0"/>
-    <parent link="trunk"/>
-    <child link="RR_pre_hip"/>
-    <axis xyz="0 1 0"/>
-    <dynamics damping="0.01" friction="0.2"/>
-    <limit effort="33.5"   velocity="21"/>
-  </joint>
+
   <joint name="RR_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.1805 -0.047 0"/>
-    <parent link="RR_pre_hip"/>
+    <parent link="trunk"/>
     <child link="RR_hip"/>
     <axis xyz="1 0 0"/>
     <dynamics damping="0.01" friction="0.2"/>
@@ -499,18 +472,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-    <link name="RL_pre_hip"></link>
-    <joint name="RL_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.1805 0.047 0"/>
-    <parent link="trunk"/>
-    <child link="RL_pre_hip"/>
-    <axis xyz="0 1 0"/>
-    <dynamics damping="0.01" friction="0.2"/>
-    <limit effort="33.5"   velocity="21"/>
-  </joint>
   <joint name="RL_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.1805 0.047 0"/>
-    <parent link="RL_pre_hip"/>
+    <parent link="trunk"/>
     <child link="RL_hip"/>
     <axis xyz="1 0 0"/>
     <dynamics damping="0.01" friction="0.2"/>

@@ -1,13 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <robot name="a1">
+  
+  
+  
+ 
   <link name="base">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
     </visual>
   </link>
   <joint name="floating_base" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+    <origin rpy="0 0 0" xyz="0.0000 0.0000 0.0000" />
     <parent link="base" />
     <child link="trunk" />
   </joint>
@@ -15,7 +21,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/trunk.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -26,19 +33,9 @@
     </collision>
   </link>
 
-  <link name="FR_pre_hip"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-   <joint name="FR_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.902915 -0.246175 -0.9533419999999999" />
-    <parent link="trunk" />
-    <child link="FR_pre_hip" />
-    <axis xyz="0 1 0" />
-    <dynamics damping="0.01" friction="0.2" />
-    <limit effort="33.5" velocity="21" />
-  </joint>
-
   <joint name="FR_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
-    <parent link="FR_pre_hip" />
+    <origin rpy="0 0 0" xyz="90.2915 -24.6175 -95.3342" />
+    <parent link="trunk" />
     <child link="FR_hip" />
     <axis xyz="1 0 0" />
     <dynamics damping="0.01" friction="0.2" />
@@ -48,7 +45,8 @@
     <visual>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/hip.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -59,7 +57,7 @@
     </collision>
   </link>
   <joint name="FR_thigh_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+    <origin rpy="0 0 0" xyz="0.0000 0.0000 0.0000" />
     <parent link="FR_hip" />
     <child link="FR_thigh" />
     <axis xyz="0 1 0" />
@@ -70,7 +68,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/thigh_mirror.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -81,7 +80,7 @@
     </collision>
   </link>
   <joint name="FR_calf_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.054576 0.006502 -0.533053" />
+    <origin rpy="0 0 0" xyz="-5.4576 0.6502 -53.3053" />
     <parent link="FR_thigh" />
     <child link="FR_calf" />
     <axis xyz="0 1 0" />
@@ -92,7 +91,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/calf.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -103,7 +103,7 @@
     </collision>
   </link>
   <joint name="FR_foot_fixed" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.08832100000000001 -0.010051000000000001 -0.454922" />
+    <origin rpy="0 0 0" xyz="-8.8321 -1.0051 -45.4922" />
     <parent link="FR_calf" />
     <child link="FR_foot" />
   </joint>
@@ -111,7 +111,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <sphere radius="0.01" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -151,18 +152,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <link name="FL_pre_hip"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-   <joint name="FL_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.728557 0.191179 -0.9673090000000001" />
-    <parent link="trunk" />
-    <child link="FL_pre_hip" />
-    <axis xyz="0 1 0" />
-    <dynamics damping="0.01" friction="0.2" />
-    <limit effort="33.5" velocity="21" />
-  </joint>
   <joint name="FL_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
-    <parent link="FL_pre_hip" />
+    <origin rpy="0 0 0" xyz="72.8557 19.1179 -96.7309" />
+    <parent link="trunk" />
     <child link="FL_hip" />
     <axis xyz="1 0 0" />
     <dynamics damping="0.01" friction="0.2" />
@@ -172,7 +164,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/hip.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -183,7 +176,7 @@
     </collision>
   </link>
   <joint name="FL_thigh_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+    <origin rpy="0 0 0" xyz="0.0000 0.0000 0.0000" />
     <parent link="FL_hip" />
     <child link="FL_thigh" />
     <axis xyz="0 1 0" />
@@ -194,7 +187,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/thigh.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -205,7 +199,7 @@
     </collision>
   </link>
   <joint name="FL_calf_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.054575 0.006502 -0.533053" />
+    <origin rpy="0 0 0" xyz="-5.4575 0.6502 -53.3053" />
     <parent link="FL_thigh" />
     <child link="FL_calf" />
     <axis xyz="0 1 0" />
@@ -216,7 +210,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/calf.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -227,7 +222,7 @@
     </collision>
   </link>
   <joint name="FL_foot_fixed" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.08832100000000001 -0.010051000000000001 -0.454922" />
+    <origin rpy="0 0 0" xyz="-8.8321 -1.0051 -45.4922" />
     <parent link="FL_calf" />
     <child link="FL_foot" />
   </joint>
@@ -235,7 +230,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <sphere radius="0.01" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -275,18 +271,10 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <link name="RR_pre_hip"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-   <joint name="RR_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.826344 -0.18047000000000002 -0.8184910000000001" />
-    <parent link="trunk" />
-    <child link="RR_pre_hip" />
-    <axis xyz="0 1 0" />
-    <dynamics damping="0.01" friction="0.2" />
-    <limit effort="33.5" velocity="21" />
-  </joint>
+
   <joint name="RR_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
-    <parent link="RR_pre_hip" />
+    <origin rpy="0 0 0" xyz="-82.6344 -18.0470 -81.8491" />
+    <parent link="trunk" />
     <child link="RR_hip" />
     <axis xyz="1 0 0" />
     <dynamics damping="0.01" friction="0.2" />
@@ -296,7 +284,8 @@
     <visual>
       <origin rpy="3.14159265359 3.14159265359 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/hip.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -307,7 +296,7 @@
     </collision>
   </link>
   <joint name="RR_thigh_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+    <origin rpy="0 0 0" xyz="0.0000 0.0000 0.0000" />
     <parent link="RR_hip" />
     <child link="RR_thigh" />
     <axis xyz="0 1 0" />
@@ -318,7 +307,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/thigh_mirror.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -329,7 +319,7 @@
     </collision>
   </link>
   <joint name="RR_calf_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.448519 0.006079 -0.7266809999999999" />
+    <origin rpy="0 0 0" xyz="-44.8519 0.6079 -72.6681" />
     <parent link="RR_thigh" />
     <child link="RR_calf" />
     <axis xyz="0 1 0" />
@@ -340,7 +330,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/calf.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -351,7 +342,7 @@
     </collision>
   </link>
   <joint name="RR_foot_fixed" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.075565 0.033491 -0.44655" />
+    <origin rpy="0 0 0" xyz="-7.5565 3.3491 -44.6550" />
     <parent link="RR_calf" />
     <child link="RR_foot" />
   </joint>
@@ -359,7 +350,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <sphere radius="0.01" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -372,10 +364,10 @@
 
 
   
-  <link name="Lower Spine"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
+  <link name="Lower Spine" />
 
   <joint name="Spinal Midpoint Lower" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.562901 0.01244 0.0" />
+    <origin rpy="0 0 0" xyz="-56.2901 1.2440 0.0000" />
     <parent link="trunk" />
     <child link="Lower Spine" />
     <axis xyz="0 1 0" />
@@ -383,10 +375,10 @@
     <limit effort="33.5" velocity="21" />
   </joint>
 
-  <link name="Tail"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
+  <link name="Tail" />
 
   <joint name="Start of Tail" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.906485 0.020033 -0.732124" />
+    <origin rpy="0 0 0" xyz="-90.6485 2.0033 -73.2124" />
     <parent link="Lower Spine" />
     <child link="Tail" />
     <axis xyz="0 1 0" />
@@ -395,13 +387,13 @@
   </joint>
 
 
-  <link name="Upper Spine"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-  <link name="Ears"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-  <link name="Nose"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-  <link name="Jawline"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
+  <link name="Upper Spine" />
+  <link name="Ears" />
+  <link name="Nose" />
+  <link name="Jawline" />
 
   <joint name="Spinal Midpoint Upper" type="revolute">
-    <origin rpy="0 0 0" xyz="0.494218 -0.010922000000000001 0.0" />
+    <origin rpy="0 0 0" xyz="49.4218 -1.0922 0.0000" />
     <parent link="trunk" />
     <child link="Upper Spine" />
     <axis xyz="0 1 0" />
@@ -410,7 +402,7 @@
   </joint>
 
   <joint name="Craniovertebral Junction" type="revolute">
-    <origin rpy="0 0 0" xyz="1.1361700000000001 -0.025109 0.7563930000000001" />
+    <origin rpy="0 0 0" xyz="113.6170 -2.5109 75.6393" />
     <parent link="Upper Spine" />
     <child link="Ears" />
     <axis xyz="0 1 0" />
@@ -419,7 +411,7 @@
   </joint>
 
   <joint name="Top of Nose" type="revolute">
-    <origin rpy="0 0 0" xyz="0.5705129999999999 -0.012608 -0.521657" />
+    <origin rpy="0 0 0" xyz="57.0513 -1.2608 -52.1657" />
     <parent link="Ears" />
     <child link="Nose" />
     <axis xyz="0 1 0" />
@@ -428,7 +420,7 @@
   </joint>
 
   <joint name="Jaw" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.579458 0.012806 0.011843999999999999" />
+    <origin rpy="0 0 0" xyz="-57.9458 1.2806 1.1844" />
     <parent link="Nose" />
     <child link="Jawline" />
     <axis xyz="0 1 0" />
@@ -466,18 +458,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-    <link name="RL_pre_hip"><visual><geometry><sphere radius="0.1" /></geometry></visual></link>
-    <joint name="RL_pre_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.5649419999999999 0.21976500000000002 -0.791156" />
-    <parent link="trunk" />
-    <child link="RL_pre_hip" />
-    <axis xyz="0 1 0" />
-    <dynamics damping="0.01" friction="0.2" />
-    <limit effort="33.5" velocity="21" />
-  </joint>
   <joint name="RL_hip_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
-    <parent link="RL_pre_hip" />
+    <origin rpy="0 0 0" xyz="-56.4942 21.9765 -79.1156" />
+    <parent link="trunk" />
     <child link="RL_hip" />
     <axis xyz="1 0 0" />
     <dynamics damping="0.01" friction="0.2" />
@@ -487,7 +470,8 @@
     <visual>
       <origin rpy="0 3.14159265359 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/hip.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -498,7 +482,7 @@
     </collision>
   </link>
   <joint name="RL_thigh_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+    <origin rpy="0 0 0" xyz="0.0000 0.0000 0.0000" />
     <parent link="RL_hip" />
     <child link="RL_thigh" />
     <axis xyz="0 1 0" />
@@ -509,7 +493,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/thigh.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -520,7 +505,7 @@
     </collision>
   </link>
   <joint name="RL_calf_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.346984 0.012964 -0.7092059999999999" />
+    <origin rpy="0 0 0" xyz="-34.6984 1.2964 -70.9206" />
     <parent link="RL_thigh" />
     <child link="RL_calf" />
     <axis xyz="0 1 0" />
@@ -531,7 +516,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <mesh filename="package://a1_description/meshes/calf.dae" scale="1 1 1" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
@@ -542,7 +528,7 @@
     </collision>
   </link>
   <joint name="RL_foot_fixed" type="fixed">
-    <origin rpy="0 0 0" xyz="0.030973999999999998 -0.012686999999999999 -0.454922" />
+    <origin rpy="0 0 0" xyz="3.0974 -1.2687 -45.4922" />
     <parent link="RL_calf" />
     <child link="RL_foot" />
   </joint>
@@ -550,7 +536,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <sphere radius="0.1" /></geometry>
+        <sphere radius="0.01" />
+      </geometry>
       <material name="orange" />
     </visual>
     <collision>
