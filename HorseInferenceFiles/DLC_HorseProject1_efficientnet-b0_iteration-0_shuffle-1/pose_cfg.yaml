@@ -1,3 +1,50 @@
+    # Project definitions (do not edit)
+Task:
+scorer:
+date:
+multianimalproject:
+identity:
+
+    # Project path (change when moving around)
+project_path: 
+  /Users/aman2/Documents/GitHub/DiffRobotA1/HorseInferenceFiles/DLC_HorseProject1_efficientnet-b0_iteration-0_shuffle-1
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+bodyparts:
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start:
+stop:
+numframes2pick:
+
+    # Plotting configuration
+skeleton: []
+skeleton_color: black
+pcutoff:
+dotsize:
+alphavalue:
+colormap:
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+iteration:
+default_net_type:
+default_augmenter:
+snapshotindex:
+batch_size:
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping:
+    #if cropping is true for analysis, then set the values here:
+x1:
+x2:
+y1:
+y2:
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+move2corner:
 all_joints:
 - - 0
 - - 1
@@ -42,7 +89,6 @@ all_joints_names:
 - BR_Red_TapeBot
 alpha_r: 0.02
 apply_prob: 0.5
-batch_size:
 contrast:
   clahe: true
   claheratio: 0.1
@@ -62,14 +108,16 @@ convolution:
   sharpenratio: 0.3
 crop_pad: 0
 cropratio: 0.4
-dataset: training-datasets/iteration-0/UnaugmentedDataSet_HorseProject1May23/HorseProject1_Aman95shuffle1.mat
+dataset: 
+  training-datasets/iteration-0/UnaugmentedDataSet_HorseProject1May23/HorseProject1_Aman95shuffle1.mat
 dataset_type: imgaug
 decay_steps: 30000
 deterministic: false
 display_iters: 1000
 fg_fraction: 0.25
 global_scale: 0.8
-init_weights: /Users/aman/Desktop/HorseProject1-Aman-2023-05-23/dlc-models/iteration-0/HorseProject1May23-trainset95shuffle1/train/snapshot-100000
+init_weights: 
+  /Users/aman/Desktop/HorseProject1-Aman-2023-05-23/dlc-models/iteration-0/HorseProject1May23-trainset95shuffle1/train/snapshot-100000
 intermediate_supervision: false
 intermediate_supervision_layer: 12
 location_refinement: true
@@ -83,7 +131,8 @@ mean_pixel:
 - 123.68
 - 116.779
 - 103.939
-metadataset: training-datasets/iteration-0/UnaugmentedDataSet_HorseProject1May23/Documentation_data-HorseProject1_95shuffle1.pickle
+metadataset: 
+  training-datasets/iteration-0/UnaugmentedDataSet_HorseProject1May23/Documentation_data-HorseProject1_95shuffle1.pickle
 min_input_size: 64
 mirror: false
 multi_stage: false
@@ -104,7 +153,6 @@ pairwise_huber_loss: false
 pairwise_predict: false
 partaffinityfield_predict: false
 pos_dist_thresh: 17
-project_path: /Users/aman/Desktop/HorseProject1-Aman-2023-05-23
 regularize: false
 rotation: 25
 rotratio: 0.4
@@ -113,7 +161,8 @@ scale_jitter_lo: 0.5
 scale_jitter_up: 1.25
 scoremap_dir: test
 shuffle: true
-snapshot_prefix: /Users/aman/Desktop/HorseProject1-Aman-2023-05-23/dlc-models/iteration-0/HorseProject1May23-trainset95shuffle1/train/snapshot
+snapshot_prefix: 
+  /Users/aman/Desktop/HorseProject1-Aman-2023-05-23/dlc-models/iteration-0/HorseProject1May23-trainset95shuffle1/train/snapshot
 stride: 8.0
 use_batch_norm: false
 use_drop_out: false

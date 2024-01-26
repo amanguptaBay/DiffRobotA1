@@ -1,0 +1,6 @@
+model_checkpoint_path: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-10000"
+all_model_checkpoint_paths: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-6000"
+all_model_checkpoint_paths: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-7000"
+all_model_checkpoint_paths: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-8000"
+all_model_checkpoint_paths: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-9000"
+all_model_checkpoint_paths: "/Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11/dlc-models/iteration-0/AnotherDetectionprojectOct11-trainset95shuffle1/train/snapshot-10000"

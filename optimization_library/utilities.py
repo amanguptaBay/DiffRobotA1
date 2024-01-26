@@ -229,6 +229,7 @@ def dehomogenize_vector(tensor, padding_size=1):
 trainingFrames = []
 
 def calculateCameraProjection(intrinsic, extrinsic, jointPositions):
+    """Assuming camera is moving between scenes, pixel coordinate of robot joint calculated for every frame and joint"""
     transform = intrinsic@extrinsic
     pixelPositions = transform@(homogenize_vectors(jointPositions).transpose(1,2))
     pixelPositions = pixelPositions.transpose(1,2)
@@ -236,6 +237,7 @@ def calculateCameraProjection(intrinsic, extrinsic, jointPositions):
     return pixelPositions
 
 def drawPredictionOnImage(*,robotEEPositions, training_dataset: TrainingKeypoints, image_index: int, intrinsic, extrinsic, robot_data, output_to_console = False):
+    """Draws the robot skeleton along with keypoints from the training data onto the frame of the video provided by image_index"""
     img = (training_dataset.images[image_index]).copy()
     positionByJoint = torch.cat([v[image_index].unsqueeze(0) if len(v.shape) >= 2 else v.unsqueeze(0) for v in robotEEPositions.values()])
     #TODO: Note that position by joint used to also be repeated so maybe there's another unsqueeze needed?
@@ -278,7 +280,8 @@ def drawPredictionOnImage(*,robotEEPositions, training_dataset: TrainingKeypoint
         img = cv2.rectangle(img, (int(x), int(y)),(int(x)+size, int(y)+size), color, -1)
     return img
         
-#Copied from https://pytorch3d.readthedocs.io/en/v0.6.0/_modules/pytorch3d/transforms/rotation_conversions.html#quaternion_to_matrix
+# Copied from https://pytorch3d.readthedocs.io/en/v0.6.0/_modules/pytorch3d/transforms/rotation_conversions.html#quaternion_to_matrix
+# Was added to avoid having to import pytorch3d since it gave issues in Google Colab
 class pytorch3d():
     class transforms:
         @staticmethod

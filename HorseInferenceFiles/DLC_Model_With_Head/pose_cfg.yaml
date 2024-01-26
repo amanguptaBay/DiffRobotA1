@@ -1,3 +1,50 @@
+    # Project definitions (do not edit)
+Task:
+scorer:
+date:
+multianimalproject:
+identity:
+
+    # Project path (change when moving around)
+project_path: 
+  /Users/aman2/Documents/GitHub/DiffRobotA1/HorseInferenceFiles/DLC_Model_With_Head
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+bodyparts:
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start:
+stop:
+numframes2pick:
+
+    # Plotting configuration
+skeleton: []
+skeleton_color: black
+pcutoff:
+dotsize:
+alphavalue:
+colormap:
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+iteration:
+default_net_type:
+default_augmenter:
+snapshotindex:
+batch_size:
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping:
+    #if cropping is true for analysis, then set the values here:
+x1:
+x2:
+y1:
+y2:
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+move2corner:
 all_joints:
 - - 0
 - - 1
@@ -50,7 +97,6 @@ all_joints_names:
 - Tip of Tail
 alpha_r: 0.02
 apply_prob: 0.5
-batch_size:
 contrast:
   clahe: true
   claheratio: 0.1
@@ -115,7 +161,6 @@ pairwise_huber_loss: false
 pairwise_predict: false
 partaffinityfield_predict: false
 pos_dist_thresh: 17
-project_path: /Users/aman2/Documents/GitHub/Horse2/AnotherDetectionproject-Aman-2023-10-11
 regularize: false
 rotation: 25
 rotratio: 0.4
