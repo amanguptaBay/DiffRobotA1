@@ -229,7 +229,12 @@ def dehomogenize_vector(tensor, padding_size=1):
 trainingFrames = []
 
 def calculateCameraProjection(intrinsic, extrinsic, jointPositions):
-    """Assuming camera is moving between scenes, pixel coordinate of robot joint calculated for every frame and joint"""
+    """
+        Assuming camera is moving between scenes, pixel coordinate of robot joint calculated for every frame and joint
+
+        Utilized a pinhole camera transformation on 3d coordinates of the robot in the configuration detailed by jointPositions
+        Reference on pinhole transformation: https://kornia.readthedocs.io/en/v0.1.2/pinhole.html#:~:text=The%20module%20implements%20the%20simplest,from%20the%20finite%20cameras%20group.&text=Using%20this%20model%2C%20a%20scene,plane%20using%20a%20perspective%20transformation.
+    """
     transform = intrinsic@extrinsic
     pixelPositions = transform@(homogenize_vectors(jointPositions).transpose(1,2))
     pixelPositions = pixelPositions.transpose(1,2)
