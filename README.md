@@ -17,8 +17,8 @@ Additionally, install CoppeliaSim for the ttt file. This is a simulation where t
 First step. Takes a URDF file and matches it up to a set of keypoints from Blender to make the robot more in the shape of the animal in question based on the skeleton
 (optional)
 
-### optimizationWithImage.ipynb
-Trains a URDF file with the video from HorseInferenceFiles and using the DLC model in HorseInferenceFiles in order to get the horse with its joints properly positioned. Returns the robot as a urdf file.
+### parameterized_optimization_with_head.ipynb
+Trains a URDF file with the video from HorseInferenceFiles and using the DLC model in HorseInferenceFiles in order to get the horse with its joints properly positioned. Returns the robot as a urdf file. Depends on the optimization_library code-base.
 
 ### prepare_robot_for_sim.ipynb
 Takes the trained robot from the previous step and makes it ready to be imported into CoppeliaSim. This means the robot is going to be scaled down and it will have its links have cylinders for visualization purposes.
@@ -100,6 +100,3 @@ A coppeliasim scene that has a robot along with a script that control it. The jo
 
 ## static_body_horse_model.ttt
 A coppeliasim scene that has a robot imported from a urdf.
-
-# Additional Files
-optimization_library an attempt at modularizing the code to make more complicated training possible. Ended up making the code very messy but it might serve as a resource to understand the project at a higher level.

@@ -21,6 +21,9 @@ def differentiableConstantTensor(constant):
 
 
 def getTorchDevice(USE_GPU = False):
+    """
+    Standard torch device header, includes support for Mac accelerated pytorch
+    """
     device = torch.device("cpu")
     try:
         if USE_GPU and torch.cuda.is_available():
@@ -63,6 +66,10 @@ class ConstrainedTensor(torch.nn.Module):
 
 
 def print_tree_connections(links, base_name = "base"):
+    """
+        Starting from the node indicated by base_name, prints the tree associated with it. 
+        Should always be base.
+    """
     tree = {}
     for parent, child in links:
         if parent not in tree:
@@ -92,6 +99,9 @@ def makeLinkLengthLearnable(learnable_robot_model, linkName, value = None):
     logging.debug(f"Made {linkName} link's length learnable initialized tensor to {value}")
 
 class CV2VideoReader():
+    """
+    Takes a video file and stores its frames
+    """
     def __init__(self, video_path, frames_to_pull = None):
         """
         video_path: path to video file
@@ -119,15 +129,23 @@ class CV2VideoReader():
 
     @classmethod
     def get_frame_count(cls, video_path):
+        """
+            Returns the amount of frames in a video
+        """
         cap = cv2.VideoCapture(video_path)
         frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         cap.release()
         return frame_count
     def get_subset(self, frame_indices):
-        #TODO: Convert this to some kind of slicing object pass through?
+        """
+            Returns a subset of the frames of the video using a list of indexes.
+        """
         return [self.frames[i] for i in frame_indices]
     
 class TrainingKeypoints():
+    """
+        Manages a set of training keypoints. These are 2D pixel coordinates representing where certain joints should be.
+    """
     def __init__(self, keypoints, images, keypoint_names_ordering):
         self.keypoints = keypoints
         self.images = images
@@ -141,6 +159,9 @@ class TrainingKeypoints():
         return self.images[0].shape[0:2]
     @classmethod
     def init_from_video_using_dlc_model(cls, videoReader: CV2VideoReader, dlc_model_path, frame_indices = None):
+        """
+            Given a video and a DLC keypoint detection model, finds the keypoints in the videos and creates a pytorch tensor with them in the ordering of the keypoints from the DLC model.
+        """
         videoReader = videoReader
         if frame_indices is None:
             frame_indices = range(videoReader.frame_count)
@@ -172,6 +193,9 @@ class TrainingKeypoints():
     
 
 class RobotData():
+    """
+        Manages the data relating to the robot.
+    """
     def __init__(self, robot_model, robot_urdf_path):
         self.robot_model = robot_model
         self.robot_urdf_path = robot_urdf_path
