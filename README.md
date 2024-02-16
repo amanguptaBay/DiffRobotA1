@@ -23,6 +23,10 @@ Trains a URDF file with the video from HorseInferenceFiles and using the DLC mod
 ### prepare_robot_for_sim.ipynb
 Takes the trained robot from the previous step and makes it ready to be imported into CoppeliaSim. This means the robot is going to be scaled down and it will have its links have cylinders for visualization purposes.
 
+## Coppeliasim
+Import the robot urdf at tools > importers > urdf. Dont change any settings.
+In the tree of the robot mark every link ending in _respondable with dynamic to make it movable.
+
 ## visualize_robot.ipynb
 Visualizes a robot
 
@@ -97,6 +101,7 @@ Easy way to extract the point coordinates is provided in the morph_robot_model_b
 ## robot_with_position_control.ttt
 
 A coppeliasim scene that has a robot along with a script that control it. The joint angles are from the json file that is exported.
+In order to get a future robot to work as this one does, you need to make all the respondable links as dynamic bodies, this is done by a checkbox.
 
 ## static_body_horse_model.ttt
 A coppeliasim scene that has a robot imported from a urdf.
